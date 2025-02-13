@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>GYM Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <button class="tablink" onclick="openTab(event, 'Dashboard')"><i class="fas fa-chart-bar"></i>Home</button>
+        <button class="tablink" onclick="openTab(event, 'Members')"><i class="fas fa-cube"></i>Members</button>
+        <button class="tablink" onclick="openTab(event, 'Membership')"><i class="fas fa-users"></i>Membership</button>
+        <button class="tablink" onclick="openTab(event, 'Trainers')"><i class="fas fa-shopping-cart"></i>Trainers</button>
+        <button class="tablink" onclick="openTab(event, 'Attendance')"><i class="fas fa-truck"></i>Attendance</button>
+        <button class="tablink" onclick="openTab(event, 'Equipment')"><i class="fas fa-truck"></i>Equipment</button>
+
+        <section id="Members" class="tabcontent">
+            <h1>Members</h1>
+            <div class="form-container">
+                <form id="memberForm">
+
+                    <div class="form-group">
+                        <label for="memberID">Member ID</label>
+                        <input type="number" id="memberID" placeholder="Enter Member ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter First Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter Last Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirth">DOB</label>
+                        <input type="date" id="dateOfBirth" placeholder="Enter DOB">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" placeholder="Enter Address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="number" id="phoneNumber" placeholder="Enter Phone Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter EMAIL">
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn insert" onclick="addMember()"><i class="fas fa-plus"></i>Insert</button>
+                    </div>
+
+                </form>
+
+                <div class="form-group search-group">
+                    <label for="search-member">Search Member</label>
+                    <input type="text" id="search-member" placeholder="Search Member">
+                    <button class="btn search" onclick="searchMember()"><i class="fas fa-search"></i>
+                        Search</button>
+                </div>
+
+            </div>
+
+            <section class="inventory-list">
+                <h2>Member List</h2>
+                <ul id="member-list"></ul>
+            </section>
+
+        </section>
+
+        <section id="Membership" class="tabcontent">
+            <h1>Membership</h1>
+            <div class="form-container">
+
+                <form class="membershipForm">
+
+                    <div class="form-group">
+                        <label for="memberID">Membership ID</label>
+                        <input type="number" id="memberID" placeholder="Enter Membership ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" placeholder="Enter Start Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" placeholder="Enter End Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="membershipType">Membership Type</label>
+                        <input type="text" id="membershipType" placeholder="Enter Membership Type">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn insert" onclick="addMembership()"><i class="fas fa-plus"></i> Insert</button>
+                    </div>
+
+                </form>
+
+                <div class="form-group search-group">
+                    <label for="search-user">Search Membership</label>
+                    <input type="text" id="search-user" placeholder="Search User">
+                    <button class="btn search" onclick="searchMembership()"><i class="fas fa-search"></i> Search</button>
+                </div>
+
+            </div>
+
+            <section class="inventory-list">
+                <h2>Membership List</h2>
+                <ul id="membership-list"></ul>
+            </section>
+        </section>
+
+        <section id="Attendance" class="tabcontent">
+            <h1>Attendance</h1>
+            <div class="form-container">
+
+                <form class="membershipForm">
+
+                    <div class="form-group">
+                        <label for="attendanceID">Attendance ID</label>
+                        <input type="number" id="attendanceID" placeholder="Enter Membership ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memberID">Member ID</label>
+                        <input type="number" id="memberID" placeholder="Enter Start Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkIN">Check In Time</label>
+                        <input type="time" id="checkIN" placeholder="Enter End Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkOUT">Check Out Time</label>
+                        <input type="time" id="checkOUT" placeholder="Enter Membership Type">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn insert" onclick="addAttendance()"><i class="fas fa-plus"></i> Insert</button>
+                    </div>
+
+                </form>
+
+                <div class="form-group search-group">
+                    <label for="search-member-id">Search Member</label>
+                    <input type="text" id="search-member-id" placeholder="Search Member">
+                    <button class="btn search" onclick="searchAttendance()"><i class="fas fa-search"></i> Search</button>
+                </div>
+
+            </div>
+
+            <section class="inventory-list">
+                <h2>Membership List</h2>
+                <ul id="attendance-list"></ul>
+            </section>
+        </section>
+
+        <section id="Trainers" class="tabcontent">
+            <h1>Trainers</h1>
+            <div class="form-container">
+
+                <form class="membershipForm">
+
+                    <div class="form-group">
+                        <label for="trainerID">Trainer ID</label>
+                        <input type="number" id="trainerID" placeholder="Enter Trainer ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter First Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter Last Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">Specialization</label>
+                        <input type="text" id="specialization" placeholder="Enter Specialization">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availability">Availability</label>
+                        <input type="text" id="availability" placeholder="Enter Availability">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn insert" onclick="addTrainer()"><i class="fas fa-plus"></i> Insert</button>
+                    </div>
+
+                </form>
+
+                <div class="form-group search-group">
+                    <label for="search-trainer">Search Member</label>
+                    <input type="text" id="search-trainer" placeholder="Search Trainer">
+                    <button class="btn search" onclick="searchTrainer()"><i class="fas fa-search"></i>Search</button>
+                </div>
+
+            </div>
+
+            <section class="inventory-list">
+                <h2>Trainers List</h2>
+                <ul id="trainer-list"></ul>
+            </section>
+        </section>
+
+
+        <section id="Equipment" class="tabcontent">
+            <h1>Equipment</h1>
+            <div class="form-container">
+
+                <form class="equipmentForm">
+
+                    <div class="form-group">
+                        <label for="equipmentID">Equipment ID</label>
+                        <input type="number" id="equipmentID" placeholder="Enter Equipment ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentName">Equipment Category</label>
+                        <input type="text" id="equipmentName" placeholder="Enter Equipment Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentCategory">Category</label>
+                        <input type="text" id="equipmentCategory" placeholder="Enter Category">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentBrand">Brand</label>
+                        <input type="text" id="equipmentBrand" placeholder="Enter Brand">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentPurchaseDate">Purchase Date</label>
+                        <input type="date" id="equipmentPurchaseDate" placeholder="Enter Purchase Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentMaintenanceSchedule">Maintainance</label>
+                        <input type="text" id="equipmentMaintenanceSchedule" placeholder="Enter Maintainance">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentCondition">Condition</label>
+                        <input type="text" id="equipmentCondition" placeholder="Enter Condition">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn insert" onclick="addEquipment()"><i class="fas fa-plus"></i> Insert</button>
+                    </div>
+
+                </form>
+
+                <div class="form-group search-group">
+                    <label for="search-equipment">Search Member</label>
+                    <input type="text" id="search-equipment" placeholder="Search Equipments">
+                    <button class="btn search" onclick="searchEquipment()"><i class="fas fa-search"></i>Search</button>
+                </div>
+
+            </div>
+
+            <section class="inventory-list">
+                <h2>Trainers List</h2>
+                <ul id="equipment-list"></ul>
+            </section>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="members_jin.js"></script>
+    <script src="membership_jin.js"></script>
+    <script src="trainers_jin.js"></script>
+    <script src="attendance_jin.js"></script>
+    <script src="equipment_jin.js"></script>
+</body>
+</html>
